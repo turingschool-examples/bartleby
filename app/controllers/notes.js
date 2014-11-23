@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import Note from 'bartleby/models/note';
 
 export default Ember.ArrayController.extend({
 
@@ -12,8 +11,7 @@ export default Ember.ArrayController.extend({
     addNote: function () {
       var note = { title: 'New Note', body: 'Lorem ipsum…' };
 
-      $.post('/api/notes', note).done(function (data) {
-        var note = Note.create(data);
+      $.post('/api/notes', note).done(function (note) {
         this.get('content').pushObject(note);
       }.bind(this)).fail(function (data) {
         alert('Something went wrong with saving the note. Check the console.');
