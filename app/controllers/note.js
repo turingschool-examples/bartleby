@@ -11,6 +11,7 @@ export default Ember.ObjectController.extend({
     },
 
     stopEditing: function () {
+      $.post('/api/notes/' + this.get('id'), this.get('content'));
       this.set('editing', false);
     }
 

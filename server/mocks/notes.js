@@ -32,5 +32,10 @@ module.exports = function(app) {
     notes.push(note);
     res.send(note);
   });
+  notesRouter.post('/:id', function(req, res) {
+    var note = req.body;
+    notes[note.id - 1] = note;
+    res.send(note);
+  });
   app.use('/api/notes', notesRouter);
 };
