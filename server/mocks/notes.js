@@ -4,17 +4,17 @@ module.exports = function(app) {
 
   var notes = [
     {
-      id: 1,
+      id: "1",
       title: 'Shopping list',
       body: 'Gala apples, Fuji apples, red delicious apples'
     },
     {
-      id: 2,
+      id: "2",
       title: 'Todo list',
       body: 'Write sample application for Ember lesson'
     },
     {
-      id: 3,
+      id: "3",
       title: 'Wish list',
       body: 'A bread bowl from Panera'
     }
@@ -28,13 +28,13 @@ module.exports = function(app) {
   });
   notesRouter.post('/', function(req, res) {
     var note = req.body;
-    note.id = notes.length + 1;
+    note.id = (parseInt(notes.length, 10) + 1).toString();
     notes.push(note);
     res.send(note);
   });
   notesRouter.post('/:id', function(req, res) {
     var note = req.body;
-    notes[note.id - 1] = note;
+    notes[parseInt(notes.length, 10) - 1] = note;
     res.send(note);
   });
   app.use('/api/notes', notesRouter);
