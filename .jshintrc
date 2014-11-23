@@ -4,7 +4,9 @@
     "window",
     "-Promise",
     "moment",
-    "markdown"
+    "markdown",
+    "$",
+    "jQuery"
   ],
   "browser" : true,
   "boss" : true,
