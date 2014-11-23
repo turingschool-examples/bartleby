@@ -3,8 +3,6 @@ import Note from 'bartleby/models/note';
 
 export default Ember.Route.extend({
   model: function (params) {
-    return $.getJSON('/api/notes/' + params.note_id).done(function (note) {
-      return Note.create(note);
-    });
+    return this.modelFor('notes').filterBy('id', parseInt(params.note_id, 10))[0];
   }
 });
