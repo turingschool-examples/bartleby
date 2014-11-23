@@ -1,1 +1,19 @@
-Notes go here.
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="list-group">
+      {{#each}}
+      <a href="#" class="list-group-item">
+        <h4 class="list-group-item-heading">{{title}}</h4>
+        <p class="list-group-item-text">{{body}}</p>
+      </a>
+      {{/each}}
+    </div>
+    <button class="btn btn-primary">New Note</button>
+  </div>
+
+  <div class="col-md-8">
+    Individual notes will go here.
+  </div>
+
+</div>
