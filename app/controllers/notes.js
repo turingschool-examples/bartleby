@@ -13,6 +13,7 @@ export default Ember.ArrayController.extend({
 
       $.post('/api/notes', note).done(function (note) {
         this.get('content').pushObject(note);
+        this.transitionToRoute('note', note);
       }.bind(this)).fail(function (data) {
         alert('Something went wrong with saving the note. Check the console.');
         console.log('POST request failed!', data);
