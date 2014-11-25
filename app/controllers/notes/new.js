@@ -12,9 +12,9 @@ export default Ember.Controller.extend({
       var title = this.get('title');
       var body = this.get('body');
       var note = { title: title, body: body };
-      Ember.$.post('/api/notes', note).done(function () {
-        this.get('controllers.notes').get('content').pushObject(note);
-        this.transitionToRoute('note', note);
+      Ember.$.post('/api/notes', note).done(function (data) {
+        this.get('controllers.notes').get('content').pushObject(data);
+        this.transitionToRoute('note', data);
       }.bind(this));
     }
 
