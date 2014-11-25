@@ -10,7 +10,7 @@
         {{/link-to}}
       {{/each}}
     </div>
-    <button class="btn btn-primary" {{action 'addNote'}}>New Note</button>
+    {{#link-to 'notes.new' class="btn btn-primary"}}New Note{{/link-to}}
   </div>
 
   <div class="col-md-8">
