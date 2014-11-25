@@ -34,7 +34,8 @@ module.exports = function(app) {
   });
   notesRouter.post('/:id', function(req, res) {
     var note = req.body;
-    notes[parseInt(notes.length, 10) - 1] = note;
+    var index = parseInt(note.id, 10) - 1;
+    notes[index] = note;
     res.send(note);
   });
   app.use('/api/notes', notesRouter);
