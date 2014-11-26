@@ -3,8 +3,8 @@ import Ember from 'ember';
 export default Ember.ArrayController.extend({
 
   numberOfNotes: function () {
-    return this.get('content').length;
-  }.property('content.[]'),
+    return this.get('model.content').length;
+  }.property('model.content.[]'),
 
   actions: {
 
