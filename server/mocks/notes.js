@@ -27,13 +27,13 @@ module.exports = function(app) {
     res.send({ note: notes[req.params.id - 1] });
   });
   notesRouter.post('/', function(req, res) {
-    var note = req.body;
+    var note = req.body.note;
     note.id = notes.length + 1;
     notes.push(note);
     res.send({ note: note });
   });
-  notesRouter.post('/:id', function(req, res) {
-    var note = req.body;
+  notesRouter.put('/:id', function(req, res) {
+    var note = req.body.note;
     var index = parseInt(note.id, 10) - 1;
     notes[index] = note;
     res.send({ note: note });
