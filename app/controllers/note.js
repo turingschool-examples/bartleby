@@ -12,10 +12,10 @@ export default Ember.ObjectController.extend({
     },
 
     stopEditing: function () {
-      $.post('/api/notes/' + this.get('id'), this.get('content')).done(function () {
-        this.set('message', 'Your note has been saved to the server.');
+      var note = this.get('model');
+      note.save().then(function () {
+        this.set('editing', false);
       }.bind(this));
-      this.set('editing', false);
     },
 
     dismissMessage: function () {
