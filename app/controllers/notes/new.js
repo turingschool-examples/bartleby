@@ -11,10 +11,12 @@ export default Ember.Controller.extend({
     saveNote: function () {
       var title = this.get('title');
       var body = this.get('body');
-      var note = { title: title, body: body };
-      Ember.$.post('/api/notes', note).done(function (data) {
-        this.get('controllers.notes').get('content').pushObject(data);
-        this.transitionToRoute('note', data);
+
+      this.store.createRecord('note', {
+        title: title,
+        body: body
+      }).save().then(function (note) {
+        this.transitionToRoute('note', note);
       }.bind(this));
     }
 
